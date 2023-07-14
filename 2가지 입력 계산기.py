@@ -14,40 +14,51 @@
 # 글자를 계산 할수 없다 ==> 사용자가 잘못 입력했을 경우 에러 처리
 # 계산할 수 없는 연산자
 
+
+x = 0
 while True:
     try:
-        print("계산할 두 수를 공백을 기준으로 숫자만 입력해주세요\n 종료를 원하시면 0을 공백 기준 2번 입력해주세요")
-        A,B = map(float,input().split())
-        if A == 0 and B == 0:
-            break
-        else:    
-            print("연산자를 입력해주세요")
-            ope = input()
-    # 연산 과정 
-            if ope == "+":
-                print(f"{A} + {B} = {A + B}") # + 연산
-            elif ope == "-":
-                print(f"{A} - {B} = {A - B}") # - 연산
-            elif ope == "*":
-                print(f"{A} * {B} = {A * B}") # * 연산
-            elif ope == "/":                  # / 연산
-                if B == 0:
-                    print("0으로 나눌 수 없습니다.")
-                else:
-                    print(f"{A} / {B} = {A / B}")       
-            elif ope == "%":                  # % 몫을 제외한 나머지 연산 
-                if B == 0:
-                    print("0으로 나눌 수 없습니다.")
-                else:
-                    print(f"{A} % {B} = 몫을 제외한 나머지 : {A % B}")
-            elif ope == "//":                 # 나머지를 제외한 몫 연산 
-                if B == 0:
-                    print("0으로 나눌 수 없습니다.")
-                else:
-                    print(f"{A} // {B} = 나머지를 제외한 몫 : {A // B}")
-            else:
-                print("연산자를 다시 입력해주세요")
-
+        if x == 1:
+            pass
+        else:
+            print("계산할 두 수를 공백을 기준으로 숫자만 입력해주세요\n 종료를 원하시면 0을 공백 기준 2번 입력해주세요")
+            A,B = map(float,input().split())
+            if A == 0 and B == 0:
+                break
     except:
-        print("오류가 발생했습니다 숫자와 연산자가 올바른지 확인해주세요.")
-        print("숫자 : 정수나 실수 , 연산자 :+,-,*,/,%,//")
+        print("오류가 발생했습니다 숫자가 맞는지 확인해 주세요.") 
+    # 연산자 입력
+    print("연산자를 입력해주세요")
+    ope = input()
+
+    # 연산 과정 
+    if ope == "+":
+        print(f"{A} + {B} = {A + B}") # + 연산
+        x = 0
+    elif ope == "-":
+        print(f"{A} - {B} = {A - B}") # - 연산
+        x = 0
+    elif ope == "*":
+        print(f"{A} * {B} = {A * B}") # * 연산
+        x = 0
+    elif ope == "/":                  # / 연산
+        x = 0
+        if B == 0:
+            print("0으로 나눌 수 없습니다.")
+        else:
+            print(f"{A} / {B} = {A / B}")       
+    elif ope == "%":                  # % 몫을 제외한 나머지 연산
+        x = 0 
+        if B == 0:
+            print("0으로 나눌 수 없습니다.")
+        else:
+            print(f"{A} % {B} = 몫을 제외한 나머지 : {A % B}")
+    elif ope == "//":                 # 나머지를 제외한 몫 연산
+        x = 0 
+        if B == 0:
+            print("0으로 나눌 수 없습니다.")
+        else:
+            print(f"{A} // {B} = 나머지를 제외한 몫 : {A // B}")
+    else:
+        print("연산자를 +, -, *, / ,//, %가 맞는지 확인해주세요")
+        x = 1
